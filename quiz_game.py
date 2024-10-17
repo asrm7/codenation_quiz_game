@@ -1,7 +1,10 @@
-import random
-import colorama
+from colorama import init, Fore
+
+
+init(autoreset=True) # Initialize Colorama
 
 def quiz_game():
+    # questions obtained in the Gemini
     questions = [
         {
             "question": "What is the capital of France?",
@@ -169,6 +172,8 @@ def quiz_game():
             "answer": "A"
         }
     ]
+    
+    
 
     total_score = 0
     random.shuffle(questions)  # Shuffle questions
