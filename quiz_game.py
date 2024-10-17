@@ -1,6 +1,8 @@
 import random
 import colorama
 
+
+#These are questions
 def quiz_game():
     questions = [
         {
@@ -169,3 +171,19 @@ def quiz_game():
             "answer": "A"
         }
     ]
+    ran_question = random.randint(0,33)
+    
+    return questions[ran_question]
+
+def ask_question():
+    sel_ques=quiz_game()
+    print(f"Question is >> \t {sel_ques['question']} \n The OPTINS are >> \t {sel_ques['options']}")
+    user_ans=input("The option SHOULD BE 'A, B, C or D \t\n")
+    if user_ans not in ('A'or 'B'or'C'or'D'):
+        print("Wrong Selection")
+    elif user_ans == sel_ques['answer']:
+        return True
+    else:
+        return False
+
+print(ask_question())
