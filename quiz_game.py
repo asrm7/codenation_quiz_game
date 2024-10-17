@@ -4,6 +4,8 @@ import colorama
 
 #These are questions
 def quiz_game():
+    ran_question = random.randint(0,32)
+    print(ran_question)
     # questions obtained in the Gemini
     questions = [
         {
@@ -172,19 +174,28 @@ def quiz_game():
             "answer": "A"
         }
     ]
-    ran_question = random.randint(0,33)
-    
     return questions[ran_question]
 
-def ask_question():
-    sel_ques=quiz_game()
-    print(f"Question is >> \t {sel_ques['question']} \n The OPTINS are >> \t {sel_ques['options']}")
-    user_ans=input("The option SHOULD BE 'A, B, C or D \t\n")
-    if user_ans not in ('A'or 'B'or'C'or'D'):
-        print("Wrong Selection")
+def ask_question(sel_ques):
+    print(f"\tQuestion is \t>> \t {sel_ques['question']} \t\t\n The OPTINS are >> \t\t {sel_ques['options']}")
+    user_ans=input("\t YOUR CHOICE \t>> \t")
+    if user_ans  != ('A' or 'B' or 'C' or 'D'):
+        print("\t\tWrong Selection")
+        sel_ques=quiz_game()
     elif user_ans == sel_ques['answer']:
+        print("\t\tGreat! Right Answer")
         return True
     else:
+        print(f"\t\tSorry! Wrong Answer")
         return False
+score = 0
 
-print(ask_question())
+i = 1
+while i<2:
+    sel_ques=quiz_game()       
+    if ask_question(sel_ques) == False:
+        score-=2
+    elif ask_question(sel_ques) == True:
+        score+=5
+    i+=1
+print(f"The Total Score is >> \t {score}")
