@@ -4,6 +4,7 @@ import colorama
 
 #These are questions
 def quiz_game():
+    # questions obtained in the Gemini
     questions = [
         {
             "question": "What is the capital of France?",
@@ -17,27 +18,27 @@ def quiz_game():
         },
         {
             "question": "What is the largest ocean on Earth?",
-            "options": ["A) Atlantic Ocean", "B) Indian Ocean", "C) Arctic Ocean", "D) Pacific Ocean"],
+            "options": ["A) Arctic Ocean", "B) Indian Ocean", "C) Atlantic Ocean", "D) Pacific Ocean"],
             "answer": "D"
         },
         {
             "question": "What is the square root of 64?",
-            "options": ["A) 6", "B) 7", "C) 8", "D) 9"],
+            "options": ["A) 5", "B) 6", "C) 8", "D) 9"],
             "answer": "C"
         },
         {
             "question": "Who wrote 'Romeo and Juliet'?",
-            "options": ["A) Charles Dickens", "B) Mark Twain", "C) William Shakespeare", "D) Leo Tolstoy"],
+            "options": ["A) Leo Tolstoy", "B) Mark Twain", "C) William Shakespeare", "D) Charles Dickens"],
             "answer": "C"
         },
         {
             "question": "What is the chemical symbol for gold?",
-            "options": ["A) Au", "B) Ag", "C) Pb", "D) Fe"],
+            "options": ["A) Au", "B) Pb", "C) Ag", "D) Fe"],
             "answer": "A"
         },
         {
             "question": "Which gas do plants absorb from the atmosphere?",
-            "options": ["A) Oxygen", "B) Carbon Dioxide", "C) Nitrogen", "D) Hydrogen"],
+            "options": ["A) Nitrogen", "B) Carbon Dioxide", "C) Oxygen", "D) Hydrogen"],
             "answer": "B"
         },
         {
@@ -47,32 +48,32 @@ def quiz_game():
         },
         {
             "question": "What is the main ingredient in guacamole?",
-            "options": ["A) Tomato", "B) Avocado", "C) Pepper", "D) Onion"],
+            "options": ["A) Pepper", "B) Avocado", "C) Tomato", "D) Onion"],
             "answer": "B"
         },
         {
             "question": "In which year did the Titanic sink?",
-            "options": ["A) 1905", "B) 1912", "C) 1915", "D) 1920"],
+            "options": ["A) 1915", "B) 1912", "C) 1905", "D) 1921"],
             "answer": "B"
         },
         {
             "question": "What is the largest mammal in the world?",
-            "options": ["A) Elephant", "B) Blue Whale", "C) Great White Shark", "D) Giraffe"],
+            "options": ["A) Great White Shark", "B) Blue Whale", "C) Elephant", "D) Giraffe"],
             "answer": "B"
         },
         {
             "question": "Who painted the Mona Lisa?",
-            "options": ["A) Vincent van Gogh", "B) Pablo Picasso", "C) Leonardo da Vinci", "D) Claude Monet"],
+            "options": ["A) Pablo Picasso", "B) Vincent van Gogh", "C) Leonardo da Vinci", "D) Claude Monet"],
             "answer": "C"
         },
         {
             "question": "Which element has the atomic number 1?",
-            "options": ["A) Helium", "B) Hydrogen", "C) Oxygen", "D) Lithium"],
+            "options": ["A) Oxygen", "B) Hydrogen", "C) Helium", "D) Lithium"],
             "answer": "B"
         },
         {
             "question": "What is the capital of Japan?",
-            "options": ["A) Seoul", "B) Beijing", "C) Tokyo", "D) Bangkok"],
+            "options": ["A) Beijing", "B) Seoul", "C) Tokyo", "D) Bangkok"],
             "answer": "C"
         },
         {
@@ -82,22 +83,22 @@ def quiz_game():
         },
         {
             "question": "Which planet is closest to the Sun?",
-            "options": ["A) Venus", "B) Earth", "C) Mercury", "D) Mars"],
+            "options": ["A) Earth", "B) Venus", "C) Mercury", "D) Mars"],
             "answer": "C"
         },
         {
             "question": "What is the hardest natural substance on Earth?",
-            "options": ["A) Diamond", "B) Gold", "C) Iron", "D) Quartz"],
+            "options": ["A) Diamond", "B) Iron", "C) Gold", "D) Quartz"],
             "answer": "A"
         },
         {
             "question": "Who discovered penicillin?",
-            "options": ["A) Marie Curie", "B) Louis Pasteur", "C) Alexander Fleming", "D) Isaac Newton"],
+            "options": ["A) Louis Pasteur", "B) Marie Curie", "C) Alexander Fleming", "D) Isaac Newton"],
             "answer": "C"
         },
         {
             "question": "Which organ in the human body is primarily responsible for detoxification?",
-            "options": ["A) Heart", "B) Kidney", "C) Liver", "D) Lungs"],
+            "options": ["A) Kidney", "B) Heart", "C) Liver", "D) Lungs"],
             "answer": "C"
         },
         {
@@ -107,8 +108,8 @@ def quiz_game():
         },
         {
             "question": "What is the most spoken language in the world?",
-            "options": ["A) English", "B) Mandarin", "C) Spanish", "D) Hindi"],
-            "answer": "B"
+            "options": ["A)  Mandarin", "B)English", "C) Spanish", "D) Hindi"],
+            "answer": "A"
         },
         {
             "question": "What is the currency of the United Kingdom?",
