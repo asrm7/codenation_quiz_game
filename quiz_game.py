@@ -1,13 +1,11 @@
 import random
 import colorama
 
-
-#These are questions
-def quiz_game():
-    ran_question = random.randint(0,32)
-    print(ran_question)
-    # questions obtained in the Gemini
-    questions = [
+# resets the color to default after printing
+colorama.init(autoreset=True)
+# create list of questions
+def questioner():
+   my_list_of_questions = [
         {
             "question": "What is the capital of France?",
             "options": ["A) Berlin", "B) Madrid", "C) Paris", "D) Rome"],
@@ -174,28 +172,54 @@ def quiz_game():
             "answer": "A"
         }
     ]
-    return questions[ran_question]
+   # shuffle the list of questions
+   random.shuffle(my_list_of_questions)
+   return my_list_of_questions
 
-def ask_question(sel_ques):
-    print(f"\tQuestion is \t>> \t {sel_ques['question']} \t\t\n The OPTINS are >> \t\t {sel_ques['options']}")
-    user_ans=input("\t YOUR CHOICE \t>> \t")
-    if user_ans  != ('A' or 'B' or 'C' or 'D'):
-        print("\t\tWrong Selection")
-        sel_ques=quiz_game()
-    elif user_ans == sel_ques['answer']:
-        print("\t\tGreat! Right Answer")
-        return True
-    else:
-        print(f"\t\tSorry! Wrong Answer")
-        return False
-score = 0
 
-i = 1
-while i<2:
-    sel_ques=quiz_game()       
-    if ask_question(sel_ques) == False:
-        score-=2
-    elif ask_question(sel_ques) == True:
-        score+=5
-    i+=1
-print(f"The Total Score is >> \t {score}")
+def score(total_sc):
+  # Final score message
+  print(colorama.Fore.MAGENTA + f"Your score is: {total_sc}")
+  if total_sc >= 15:
+    print(colorama.Fore.GREEN + "Great job! ")
+  elif total_sc >= 5:
+    print(colorama.Fore.YELLOW + "Not so great! Keep it up!")
+  else:
+    print(colorama.Fore.RED + "Looser!")
+
+
+def game():
+    total_sc = 0
+    questions = questioner()
+
+    for a in questions:
+        print(colorama.Fore.CYAN + a["question"])
+        for b in a["options"]:
+            print(colorama.Fore.GREEN + b)
+        
+        answer = input(colorama.Fore.YELLOW + "Enter your answer (A, B, C, or D): ").strip().upper()
+        while answer not in ['A', 'B', 'C', 'D']:
+            print(colorama.Fore.RED + "Invalid input. Enter A, B, C, or D.")
+            answer = input(colorama.Fore.YELLOW + "Enter your answer (A, B, C, or D): ").strip().upper()
+        
+        if answer == a["answer"]:
+            total_sc += 5
+            print(colorama.Fore.GREEN + "Correct! You earned 5 points.")
+        else:
+            total_sc -= 2
+            print(colorama.Fore.RED + "Incorrect! You lost 2 points.")
+        
+        print()  # Adds spacing between questions
+
+    # Show the final score once after all questions are answered
+    score(total_sc)
+    
+def main():
+    while True:
+      game()
+      playing = input(colorama.Fore.CYAN + "Play again? (yes/no): ").strip().lower()
+      if playing != 'yes':
+         break
+
+# Run the game
+main()
