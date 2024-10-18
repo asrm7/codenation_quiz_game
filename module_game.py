@@ -2,12 +2,10 @@ import random
 from colorama import Fore, Back,Style 
 
 
-#These are questions
-def quiz_game():
-    ran_question = random.randint(0,32)
-    Fore.RED
-   # questions obtained in the Gemini
-    questions = [
+
+
+# questions obtained in the Gemini
+questions = [
         {
             "question": "What is the capital of France?",
             "options": ["A) Berlin", "B) Madrid", "C) Paris", "D) Rome"],
@@ -173,8 +171,22 @@ def quiz_game():
             "options": ["A) Calcium", "B) Iron", "C) Potassium", "D) Magnesium"],
             "answer": "A"
         }
-    ]
-    return questions[ran_question]
+   ]
+
+
+#def randomisation_ques():
+ #   ran_question = random.randint(0,32)
+  #  return ran_question
+
+# Random question selection
+def question_chose(rndm):
+    ques_selected = questions[rndm]
+    return ques_selected
+
+def rand_color():
+    color_choice = ['RED', 'BLUE', 'GREEN', 'CYAN', 'YELLOW', 'WHITE']
+    col=random.randint(0,5)
+    return color_choice[col]
 
 def ask_question(sel_ques):
     print(Fore.BLUE+f"\t Question is \t>> \t {sel_ques['question']}") 
@@ -182,25 +194,24 @@ def ask_question(sel_ques):
     user_ans=input("\t YOUR CHOICE \t>> \t")
     if user_ans  not in ('A' , 'B' , 'C' , 'D'):
        print("\t\tWrong Selection")
-       sel_ques=quiz_game()
+       sel_ques=question_chose()
     elif user_ans == sel_ques['answer']:
         print("\t\tGreat! Right Answer")
         return True
     else:
         print(f"\t\tSorry! Wrong Answer")
         return False
+
+
 score = 0
-
 i = 1
-
-while i<3:
-    sel_ques=quiz_game() 
-    ch_ans=ask_question(sel_ques)
+while i<=5:
+    ran_question = random.randint(0,32)
+    ques_sel = question_chose(ran_question)
+    ch_ans=ask_question(ques_sel)
     if ch_ans == False:
         score-=2
     elif ch_ans== True:
         score+=5
     i+=1
-         
-
 print(Fore.CYAN+f"The Total Score is >> \t {score}"+Style.RESET_ALL)
