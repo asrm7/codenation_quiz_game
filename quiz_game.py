@@ -3,8 +3,9 @@ import colorama
 
 # resets the color to default after printing
 colorama.init(autoreset=True)
-# create list of questions
+# A function that create a list of questions
 def questioner():
+   # questions from Gemini AI  
    my_list_of_questions = [
         {
             "question": "What is the capital of France?",
@@ -174,6 +175,7 @@ def questioner():
     ]
    # shuffle the list of questions
    random.shuffle(my_list_of_questions)
+   # return the shuffle list
    return my_list_of_questions
 
 
@@ -191,30 +193,33 @@ def score(total_sc):
 def game():
     total_sc = 0
     questions = questioner()
-
+    # A for loop iterating over a list["question"]    
     for a in questions:
         print(colorama.Fore.CYAN + a["question"])
+        # A for loop iterating over a list["options"]    
         for b in a["options"]:
             print(colorama.Fore.GREEN + b)
         
         answer = input(colorama.Fore.YELLOW + "Enter your answer (A, B, C, or D): ").strip().upper()
+        # while loop until get a valid choice ('A', 'B', 'C', 'D')
         while answer not in ['A', 'B', 'C', 'D']:
             print(colorama.Fore.RED + "Invalid input. Enter A, B, C, or D.")
             answer = input(colorama.Fore.YELLOW + "Enter your answer (A, B, C, or D): ").strip().upper()
-        
+        # checks the answer given and awards points
         if answer == a["answer"]:
             total_sc += 5
             print(colorama.Fore.GREEN + "Correct! You earned 5 points.")
         else:
             total_sc -= 2
             print(colorama.Fore.RED + "Incorrect! You lost 2 points.")
-        
-        print()  # Adds spacing between questions
+        # Adds spacing between questions
+        print()  
 
     # Show the final score once after all questions are answered
     score(total_sc)
-    
+# the main function of program    
 def main():
+    # while loop to check if the user wants to continue
     while True:
       game()
       playing = input(colorama.Fore.CYAN + "Play again? (yes/no): ").strip().lower()
